@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Car Value Form</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <h1>Enter Car Details:</h1>
+    <form method="POST" action="{{ url_for('hello.hello_route') }}">
+      <label>Car Brand:</label>
+      <input type="text" name="field1" required>
+      <br>
+      <label>Car Model:</label>
+      <input type="text" name="field2" required>
+      <br>
+      <label>Date:</label>
+      <input type="date" name="field3" required>
+      <br>
+      <label>Mileage:</label>
+      <input type="text" name="field4">
+      <br>
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>

@@ -5,21 +5,21 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
   </head>
   <body>
-    <h1>Enter Car Details:</h1>
-    <form method="POST" action="{{ url_for('hello.hello_route') }}">
-      <label>Car Brand:</label>
-      <input type="text" name="make" required>
-      <br>
-      <label>Car Model:</label>
-      <input type="text" name="model" required>
-      <br>
-      <label>Date:</label>
-      <input type="number" name="year" required>
-      <br>
-      <label>Mileage:</label>
-      <input type="number" name="mileage" step="any">
-      <br>
-      <button type="submit">Submit</button>
-    </form>
+      <form method="POST" action="{{ url_for('hello.hello_route') }}">
+        <h1 class="a11y-hidden">Enter Car Details:</h1>
+        <label>Car Brand:</label>
+          <input type="text" name="make" required>
+        <br>
+        <label>Car Model:</label>
+          <input type="text" name="model" required>
+        <br>
+        <label>Date:</label>
+          <input type="number" name="year" required>
+        <br>
+        <label>Mileage:</label>
+          <input type="number" name="mileage" step="any">
+        <br>
+        <button type="submit">Submit</button>
+      </form>
   </body>
 </html>

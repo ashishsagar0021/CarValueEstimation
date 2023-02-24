@@ -21,5 +21,6 @@ def get_car_value():
     model = request.args.get('model')
     year = request.args.get('year')
     mileage = request.args.get('mileage', 0.0)
-    carValue = carValueView(make, model, year, mileage)
+    # carValue = carValueView(make, model, year, mileage)
+    carValue = 0
     return render_template('get_car_value.html', make=make, model=model, year=year, mileage=mileage, carValue=carValue)

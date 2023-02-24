@@ -1,6 +1,7 @@
 import joblib
 from sklearn.preprocessing import LabelEncoder
 
+
 def carValueView(make, model, year, mileage):
     regression_model = joblib.load('finalized_model.sav')
     car = make + "-" + model + "-" + str(year)

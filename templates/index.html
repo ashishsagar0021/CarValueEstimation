@@ -8,16 +8,16 @@
     <h1>Enter Car Details:</h1>
     <form method="POST" action="{{ url_for('hello.hello_route') }}">
       <label>Car Brand:</label>
-      <input type="text" name="field1" required>
+      <input type="text" name="make" required>
       <br>
       <label>Car Model:</label>
-      <input type="text" name="field2" required>
+      <input type="text" name="model" required>
       <br>
       <label>Date:</label>
-      <input type="date" name="field3" required>
+      <input type="number" name="year" required>
       <br>
       <label>Mileage:</label>
-      <input type="text" name="field4">
+      <input type="number" name="mileage" step="any">
       <br>
       <button type="submit">Submit</button>
     </form>

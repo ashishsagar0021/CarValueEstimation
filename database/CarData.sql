@@ -21,9 +21,8 @@ CREATE TABLE CarData (
   exterior_color  VARCHAR(255),
   interior_color VARCHAR(255),
   seller_website VARCHAR(255),
-  first_seen_date DATETIME,
-  last_seen_date DATETIME,
-  dealer_vdp_last_seen_date DATETIME,
-  listing_status VARCHAR(255),
-  price INT
+  first_seen_date INT,
+  last_seen_date INT,
+  dealer_vdp_last_seen_date INT,
+  listing_status VARCHAR(255)
 );

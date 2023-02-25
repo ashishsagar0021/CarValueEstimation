@@ -9,26 +9,28 @@
     <p>Make: {{ make }}</p>
     <p>Model: {{ model }}</p>
     <p>Year: {{ year }} </p>
-    {% if mileage %}
-         <p>Mileage: {{ mileage }}</p>
+    <p>Mileage: {{ mileage }}</p>
+
+    {% if carValue>0 %}
+        <p>Car Value: {{ carValue }} </p>
     {% endif %}
-    <p>Car Value: {{ carValue }} </p>
-   <table>
-      <tr>
-        <th>Field 1</th>
-        <th>Field 2</th>
-        <th>Field 3</th>
-        <!-- Add more table headers for the remaining fields -->
-      </tr>
-     {% for i in range(100) %}
-        <tr>
-          <td>{{ val1 }}</td>
-          <td>{{ val2 }}</td>
-          <td>{{ val3 }}</td>
-          <!-- Add more table cells for the remaining fields -->
-        </tr>
-     {% endfor %}
-      <!-- Add more rows for the remaining data -->
-    </table>
+    {% if relevantList %}
+        <table>
+            <tr>
+                <th>Car, year</th>
+                <th>Listing Price</th>
+                <th>Listing Mileage</th>
+            </tr>
+            {% for r in relevantList %}
+                <tr>
+                  <td>{{ r[0] }} &nbsp; {{ r[1] }},&nbsp; {{ r[2] }}</td>
+                  <td>{{ r[3] }}</td>
+                  <td>{{ r[4] }}</td>
+                </tr>
+             {% endfor %}
+        </table>
+        {% else %}
+           <h2>Car not present in database</h2>
+        {% endif %}
   </body>
 </html>

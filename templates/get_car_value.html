@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Flask App</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='getCarStyle.css') }}">
+  </head>
+  <body>
+    <h1>Car Details:</h1>
+    <p>Make: {{ make }}</p>
+    <p>Model: {{ model }}</p>
+    <p>Year: {{ year }} </p>
+    <p>Mileage: {{ mileage }}</p>
+    <p>Car Value: {{ carValue }} </p>
+    {% if relevantList %}
+        <table>
+            <tr>
+                <th>Car, year</th>
+                <th>Listing Price</th>
+                <th>Listing Mileage</th>
+            </tr>
+            {% for r in relevantList %}
+                <tr>
+                  <td>{{ r[0] }} &nbsp; {{ r[1] }},&nbsp; {{ r[2] }}</td>
+                  <td>{{ r[3] }}</td>
+                  <td>{{ r[4] }}</td>
+                </tr>
+             {% endfor %}
+        </table>
+        {% else %}
+           <h2>Car not present in database</h2>
+        {% endif %}
+  </body>
+</html>

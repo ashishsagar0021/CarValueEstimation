@@ -1,7 +1,7 @@
 from flask import Flask
 from database.dump_data import dump_data
 import mysql.connector
-from config import DB_CONFIG
+from config import DB_CONFIG, HOST
 
 app = Flask(__name__)
 
@@ -13,7 +13,7 @@ if __name__ == "__main__":
     mycursor = mydb.cursor()
 
     # check if the T table exists
-    mycursor.execute("SHOW TABLES LIKE 'VinData'")
+    mycursor.execute("SHOW TABLES LIKE 'CarData'")
     result = mycursor.fetchone()
 
     if not result:
@@ -22,7 +22,7 @@ if __name__ == "__main__":
             mycursor.execute(f.read())
 
     # check if the T table is empty
-    mycursor.execute("SELECT COUNT(*) FROM VinData")
+    mycursor.execute("SELECT COUNT(*) FROM CarData")
     result = mycursor.fetchone()
 
     if result[0] == 0:
@@ -32,4 +32,4 @@ if __name__ == "__main__":
 
     app.register_blueprint(hello)
     app.register_blueprint(get_car_value_bp)
-    app.run(host='127.0.0.1')
+    app.run(host=HOST)

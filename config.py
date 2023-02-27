@@ -4,3 +4,5 @@ DB_CONFIG = {
     'password': '',
     'database': 'CAR_VALUE_ESTIMATION'
 }
+
+HOST = '104.225.133.251'

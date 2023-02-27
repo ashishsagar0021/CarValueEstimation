@@ -9,7 +9,7 @@ def dump_data():
     mycursor = mydb.cursor()
 
     # check if the T table is empty
-    mycursor.execute("SELECT COUNT(*) FROM VinData")
+    mycursor.execute("SELECT COUNT(*) FROM CarData")
     result = mycursor.fetchone()
 
     if result[0] == 0:
@@ -23,11 +23,7 @@ def dump_data():
                     continue
                 flag = 0
                 data = line.strip().split('|')
-                for x in data:
-                    if x == '':
-                        flag = 1
-                        break
-                if flag == 1:
+                if data[0] == '' or data[1] == '' or data[2] == '' or data[3] == '' or data[10] == '' or data[11] == '':
                     continue
                 print(f"data: {data}")
                 vin = data[0]
@@ -38,7 +34,7 @@ def dump_data():
                 listing_mileage = float(data[11])
 
                 # create the SQL query with the placeholders
-                sql = f"INSERT INTO VinData (vin, year, make, model, listing_price, listing_mileage) VALUES ('{vin}', {year}, '{make}', '{model}', {listing_price}, {listing_mileage})"
+                sql = f"INSERT INTO CarData (vin, year, make, model, listing_price, listing_mileage) VALUES ('{vin}', {year}, '{make}', '{model}', {listing_price}, {listing_mileage})"
 
                 try:
                     mycursor.execute(sql)

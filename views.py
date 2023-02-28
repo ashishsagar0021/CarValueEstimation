@@ -29,6 +29,6 @@ def carValueView(make, model, year, mileage):
     price = m*input_mileage + c
     model_out = np.array([[1, price]])
     actual_price = scaler.inverse_transform(model_out)
-    return [round(actual_price[0][1],2),list]
+    return [round(max(int(round(actual_price[0][1],-2)),0),2),list]
 
 # Standardize the input mileage

@@ -1,7 +1,7 @@
 from flask import Flask
 from database.dump_data import dump_data
 import mysql.connector
-from config import DB_CONFIG, HOST
+from config import DB_CONFIG
 
 app = Flask(__name__)
 
@@ -32,4 +32,4 @@ if __name__ == "__main__":
 
     app.register_blueprint(hello)
     app.register_blueprint(get_car_value_bp)
-    app.run(host=HOST)
+    app.run(unix_socket="/root/ashish/carValueEstimation/carValueEstimation.sock")
